@@ -4,7 +4,7 @@ def load_classifier():
   classifier, tfv = pickle.load(open('classifier.p', 'rb'))
 
   def predict(X):
-    return classifier.predict_proba(tfv.transform(X))
+    return [p[1] for p in classifier.predict_proba(tfv.transform(X))]
 
   return predict
 
